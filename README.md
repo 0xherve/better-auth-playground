@@ -1,21 +1,71 @@
-# Better Auth Playground
+# Better Auth Starter
 
-This repo is a Next.js application that I will be using to learn how to use Better Auth to add authentication to my application. 
+This is a teaching-first Next.js starter repo for learning how Better Auth
+works with Drizzle and PostgreSQL. It includes minimal UI plus annotated pages
+that explain each step of the auth flow.
 
-I will be adding an authentication system with Better-auth infront of the default Next.js application starter. 
+## What this repo gives you
 
-## Getting Started
+- Better Auth wired to a Drizzle + PostgreSQL database
+- Signup and sign-in pages with the real API calls
+- A dashboard page that reads the session client-side
+- Teaching notes alongside the UI so you can follow the flow
 
-I will be using Bun to run by repo, but I think you can also use Node.js.
+## Requirements
 
-For a package manager, I will also be using Bun, but you can use your preferred package manager.
+- Bun (recommended) or Node.js 18+
+- PostgreSQL database
 
-## Components
+## Setup
 
-This project uses the following notable components:
+1. Install dependencies
 
-- Next.js
-- Tailwind CSS
-- Better Auth
-- PostgreSQL (hosted on Railway)
-- Drizzle ORM
+```bash
+bun install
+```
+
+2. Add environment variables
+
+```bash
+cp .env.local.example .env.local
+```
+
+Update the values:
+
+```bash
+DATABASE_URL=postgres://user:pass@host:5432/db
+BETTER_AUTH_SECRET=replace-with-random-string
+BETTER_AUTH_URL=http://localhost:3000
+NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
+```
+
+3. Run migrations
+
+```bash
+bun run db:generate
+bun run db:migrate
+```
+
+4. Start the dev server
+
+```bash
+bun run dev
+```
+
+## Walkthrough
+
+1. Open `app/page.tsx` to see the learning steps.
+2. Visit `/sign-up` to create an account.
+3. Visit `/sign-in` to sign in with that account.
+4. Visit `/dashboard` to inspect the session data.
+5. Open `app/api/auth/route.ts` to see where Better Auth mounts routes.
+
+## File map
+
+- `lib/auth.ts`: Better Auth server config
+- `lib/auth-client.ts`: Better Auth client config + hooks
+- `app/api/auth/route.ts`: Next.js route handler for Better Auth
+- `lib/db/schema.ts`: Drizzle schema for auth tables
+- `app/sign-up/page.tsx`: Signup UI + notes
+- `app/sign-in/page.tsx`: Sign-in UI + notes
+- `app/dashboard/page.tsx`: Session + sign-out demo
