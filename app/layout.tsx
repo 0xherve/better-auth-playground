@@ -1,21 +1,21 @@
 import type { Metadata } from "next";
-import { Manrope, Playfair_Display } from "next/font/google";
+import { Open_Sans, Poppins } from "next/font/google";
 import "./globals.css";
 
-const manrope = Manrope({
-  variable: "--font-manrope",
+const OpenSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
 });
 
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
-  weight: ["400", "600"],
+  weight: "100",
 });
 
 export const metadata: Metadata = {
-  title: "Better Auth Starter",
-  description: "Starter repo for learning Better Auth with Next.js",
+  title: "Better-Auth Starter Repo",
+  description: "Your Better Auth starter project to build your own auth system going through the docs.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manrope.variable} ${playfair.variable} antialiased`}
+        className={`${OpenSans.variable} ${poppins.variable} antialiased`}
       >
         {children}
       </body>

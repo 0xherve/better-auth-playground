@@ -1,71 +1,54 @@
-# Better Auth Starter
+# Better Auth Learning Starter
 
-This is a teaching-first Next.js starter repo for learning how Better Auth
-works with Drizzle and PostgreSQL. It includes minimal UI plus annotated pages
-that explain each step of the auth flow.
+A Next.js starter project for learning and implementing Better Auth. This repo provides a clean foundation with Next.js, Tailwind CSS, Drizzle ORM, and a PostgreSQL database schema ready for authentication.
 
-## What this repo gives you
+## Prerequisites
 
-- Better Auth wired to a Drizzle + PostgreSQL database
-- Signup and sign-in pages with the real API calls
-- A dashboard page that reads the session client-side
-- Teaching notes alongside the UI so you can follow the flow
+- Node.js (or Bun)
+- PostgreSQL database (e.g., hosted on Railway or locally)
 
-## Requirements
+## Installation
 
-- Bun (recommended) or Node.js 18+
-- PostgreSQL database
+1. Clone the repo:
+   ```bash
+   git clone https://github.com/0xherve/better-auth-playground
+   cd better-auth-playground
+   ```
 
-## Setup
+2. Install dependencies:
+   ```bash
+   bun install  # or npm install
+   ```
 
-1. Install dependencies
+## Environment Setup
 
-```bash
-bun install
+Copy `.env.local` and fill in your values:
+
 ```
-
-2. Add environment variables
-
-```bash
-cp .env.local.example .env.local
-```
-
-Update the values:
-
-```bash
 DATABASE_URL=postgres://user:pass@host:5432/db
 BETTER_AUTH_SECRET=replace-with-random-string
 BETTER_AUTH_URL=http://localhost:3000
-NEXT_PUBLIC_BETTER_AUTH_URL=http://localhost:3000
 ```
 
-3. Run migrations
+- **DATABASE_URL**: Your PostgreSQL connection string.
+- **BETTER_AUTH_SECRET**: A random string for Better Auth security.
+- **BETTER_AUTH_URL**: Your app's URL (localhost for dev).
 
-```bash
-bun run db:generate
-bun run db:migrate
-```
+## Running the App
 
-4. Start the dev server
+1. Generate and run database migrations:
+   ```bash
+   bun run db:generate
+   bun run db:migrate
+   ```
 
-```bash
-bun run dev
-```
+2. Start the development server:
+   ```bash
+   bun run dev  # or npm run dev
+   ```
 
-## Walkthrough
+Visit `http://localhost:3000` to see the starter.
 
-1. Open `app/page.tsx` to see the learning steps.
-2. Visit `/sign-up` to create an account.
-3. Visit `/sign-in` to sign in with that account.
-4. Visit `/dashboard` to inspect the session data.
-5. Open `app/api/auth/route.ts` to see where Better Auth mounts routes.
+## Next Steps
 
-## File map
-
-- `lib/auth.ts`: Better Auth server config
-- `lib/auth-client.ts`: Better Auth client config + hooks
-- `app/api/auth/route.ts`: Next.js route handler for Better Auth
-- `lib/db/schema.ts`: Drizzle schema for auth tables
-- `app/sign-up/page.tsx`: Signup UI + notes
-- `app/sign-in/page.tsx`: Sign-in UI + notes
-- `app/dashboard/page.tsx`: Session + sign-out demo
+Follow the Better Auth docs to implement authentication features. Use the learning checklist on the homepage to track progress.
