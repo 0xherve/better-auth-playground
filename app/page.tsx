@@ -4,7 +4,7 @@ export default function Home() {
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-fuchsia-500/30 blur-3xl" />
         <div className="absolute -bottom-40 right-1/3 h-100 w-md rounded-full bg-cyan-400/30 blur-3xl" />
-        <div className="absolute inset-0 bg-[linear-gradient(transparent_95%,rgba(255,255,255,0.06)_96%),linear-gradient(90deg,transparent_95%,rgba(255,255,255,0.06)_96%)] bg-[size:28px_28px]" />
+        <div className="absolute inset-0 bg-[linear-gradient(transparent_95%,rgba(255,255,255,0.06)_96%),linear-gradient(90deg,transparent_95%,rgba(255,255,255,0.06)_96%)] bg-size-[size:28px_28px]" />
       </div>
 
       <main className="relative mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-16 px-6 py-20 sm:px-10 lg:px-16">

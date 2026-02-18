@@ -14,8 +14,13 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Better-Auth Starter Repo",
-  description: "Your Better Auth starter project to build your own auth system going through the docs.",
+    title: "Better-Auth Starter Repo",
+    description: "Your Better Auth starter project to build your own auth system going through the docs.",
+    keywords: ["auth", "better-auth", "starter", "repo"],
+    icons: {
+        icon: "/next.svg",
+        apple: "/next.svg",
+    },
 };
 
 export default function RootLayout({
