@@ -1,42 +1,46 @@
-// src/routes/__root.tsx
 /// <reference types="vite/client" />
-import type { ReactNode } from 'react'
+import type { ReactNode } from "react";
 import {
   Outlet,
   createRootRoute,
   HeadContent,
   Scripts,
-} from '@tanstack/react-router'
+} from "@tanstack/react-router";
+import "../styles.css";
 
 export const Route = createRootRoute({
   head: () => ({
     meta: [
+      { charSet: "utf-8" },
+      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { title: "Better Auth Playground — TanStack Start" },
+    ],
+    links: [
       {
-        charSet: 'utf-8',
+        rel: "preconnect",
+        href: "https://fonts.googleapis.com",
       },
       {
-        name: 'viewport',
-        content: 'width=device-width, initial-scale=1',
-      },
-      {
-        title: 'Better Auth Playground with TanStack Start',
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous" as const,
       },
     ],
   }),
   component: RootComponent,
-})
+});
 
 function RootComponent() {
   return (
     <RootDocument>
       <Outlet />
     </RootDocument>
-  )
+  );
 }
 
 function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html>
+    <html lang="en">
       <head>
         <HeadContent />
       </head>
@@ -45,5 +49,5 @@ function RootDocument({ children }: Readonly<{ children: ReactNode }>) {
         <Scripts />
       </body>
     </html>
-  )
+  );
 }
